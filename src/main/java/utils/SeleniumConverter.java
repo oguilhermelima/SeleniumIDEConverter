@@ -8,11 +8,11 @@ import java.util.List;
 public class SeleniumConverter {
 
     /**
-     * Generate code from a Selenium IDE code
+     * Generate Java code from a Selenium IDE code
      * @param test Receive all data from test
      * @param url Receive the url that test will run
      * */
-    public static String generateCode(Test test, String url){
+    public static String generateJavaCode(Test test, String url){
 
         /* Will receive:
             @ target: represents tags that are used to identify some html code. Eg. class, id or name from a div;
@@ -37,7 +37,6 @@ public class SeleniumConverter {
             target = refactorTarget(targets, target);
             // Receive the value
             value =  test.getCommands().get(j).getValue();
-
 
             switch (command) {
                 // OPEN COMMAND - USED TO OPEN SOME SPECIFIC URL
