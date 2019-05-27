@@ -40,7 +40,7 @@ public class GenerateFiles {
             // Open the dialog and returns a success/error integer (0 to success, -1 to error)
             int findFolder = chooser.showSaveDialog(chooser);
             // Will receive the tests files
-            File[] files = null;
+            File[] files;
             // If the returned integer is equals 1 (success)
             if (findFolder == JFileChooser.APPROVE_OPTION)
                 // Receive all files from folder
@@ -71,7 +71,7 @@ public class GenerateFiles {
                                     className = new String(test.getName().getBytes(), StandardCharsets.UTF_8);
                                     // Remove all special characters from the name
                                     className = Normalizer.normalize(className, Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "");
-                                    // Set the first letter uppercase and the other to lowercase and remove spaces
+                                    // Set the first letter uppercase and the others to lowercase and remove spaces
                                     className = (className.substring(0, 1)).toUpperCase() + (className.substring(1)).toLowerCase().trim().replace(" ", "");
                                     // Receive the converted code
                                     code = SeleniumConverter.generateJavaCode(test, project.getUrl());
